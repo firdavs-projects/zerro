@@ -13,7 +13,12 @@ import { IncomeCard } from './cards/IncomeCard'
 import { Card } from './cards/Card'
 
 export default function Review() {
-  const [year, setYear] = useState(new Date().getFullYear())
+  // Shows previous year until September then unlocks current year
+  const startingDate =
+    new Date().getMonth() > 8 // September
+      ? new Date().getFullYear()
+      : new Date().getFullYear() - 1
+  const [year, setYear] = useState(startingDate)
   const yearStats = useSelector(getYearStats(year))
 
   if (!yearStats) return null
