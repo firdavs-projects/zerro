@@ -89,16 +89,17 @@ const Actions: FC<ActionsProps> = ({
     onUncheckAll()
   }
 
-  const chipText =
-    pluralize(length, ['Выбрана', 'Выбрано', 'Выбрано']) +
-    ` ${length} ` +
-    pluralize(length, ['операция', 'операции', 'операций'])
+  const chipText = pluralize(length, [
+    `Выбрана ${length} операция`,
+    `Выбрано ${length} операции`,
+    `Выбрано ${length} операций`,
+  ])
 
-  const deleteText = `Удалить ${length} ${pluralize(length, [
-    'операцию',
-    'операции',
-    'операций',
-  ])}?`
+  const deleteText = pluralize(length, [
+    `Удалить ${length} операцию?`,
+    `Удалить ${length} операции?`,
+    `Удалить ${length} операций?`,
+  ])
 
   return (
     <>
